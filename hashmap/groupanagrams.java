@@ -1,0 +1,32 @@
+package hashmap;
+import java.util.*;
+
+public class groupanagrams {
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String s : strs) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+
+            map.putIfAbsent(key, new ArrayList<>());
+            map.get(key).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+
+    // main method to test
+    public static void main(String[] args) {
+
+        groupanagrams obj = new groupanagrams();
+
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
+
+        List<List<String>> result = obj.groupAnagrams(input);
+
+        System.out.println(result);
+    }
+}
