@@ -7,6 +7,8 @@ public class contigousarray {
         HashMap<Integer,Integer>freq=new HashMap<>();
         int sum=0;
         int maxlen=0;
+        int bestst=-1;
+        int bestend=1;
         for(int i=0;i<nums.length;i++){
             if(nums[i]==0){
                 sum-=1;
@@ -15,10 +17,17 @@ public class contigousarray {
             }
             if(sum==0){
                 maxlen=i+1;
+                bestst=0;
+                bestend=i;
             }
             if(freq.containsKey(sum)){
-                int len=i-freq.get(sum);
-                maxlen=Math.max(maxlen,len);
+                int perv=freq.get(sum);
+                int len=i-perv;
+                if(len>maxlen){
+                   maxlen=len;
+                   bestst=perv+1;
+                   bestend=i;
+                }
 
             }else{
                 freq.put(sum,i);
