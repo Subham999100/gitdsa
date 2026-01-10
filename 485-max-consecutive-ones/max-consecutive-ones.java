@@ -10,7 +10,6 @@ class Solution {
               maxlen=Math.max(maxlen,cur);
            }
            if(nums[r]==0){
-             l=r;
              cur=0;
            }
            r++;
