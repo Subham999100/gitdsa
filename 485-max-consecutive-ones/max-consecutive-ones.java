@@ -7,9 +7,8 @@ class Solution {
            if(nums[r]==1){
               cur++;
               maxlen=Math.max(maxlen,cur);
-           }
-           if(nums[r]==0){
-             cur=0;
+           }else{
+            cur=0;
            }
            r++;
         }
