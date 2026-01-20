@@ -11,22 +11,13 @@ class Solution {
         int n=s.length();
         int zero=n-one;
         StringBuilder sb=new StringBuilder();
-        for(int i=n-1;i>=0;i--){
-            if(i==n-1){
-                sb.append('1');
-                one--;
-            }
-            if(zero!=0){
-                sb.append('0');
-                zero--;
-            }
-            if(zero==0 && one>0){
-                sb.append('1');
-                one--;
-            }
+        for(int i=0;i<one-1;i++){
+            sb.append('1');
         }
-        return sb.reverse().toString();
-
-
+        for(int i=0;i<zero;i++){
+            sb.append('0');
+        }
+        sb.append('1');
+        return sb.toString();
     }
 }
