@@ -1,15 +1,15 @@
 class Solution {
     public int minPairSum(int[] nums) {
-        int maxi=0;
+        Arrays.sort(nums);
         int i=0;
         int j=nums.length-1;
-        int curr=0;
-        Arrays.sort(nums);
+        int maxi=0;
         while(i<j){
-           curr=nums[i]+nums[j];
-           maxi=Math.max(maxi,curr);
+           int cur=0;
+           cur=nums[i]+nums[j];
+           maxi=Math.max(maxi,cur);
            i++;
-           j--;
+           j--;            
         }
         return maxi;
     }
