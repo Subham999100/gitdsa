@@ -1,7 +1,14 @@
 class Solution {
-    public boolean allzero(int[] arr){
-        for(int i:arr){
-            if(i!=0){
+    public boolean check(String kk,String p){
+        int[] freq=new int[26];
+        for(int i=0;i<p.length();i++){
+            char ch=kk.charAt(i);
+            char kh=p.charAt(i);
+            freq[ch-'a']++;
+            freq[kh-'a']--;
+        }
+        for(int n:freq){
+            if(n!=0){
                 return false;
             }
         }
@@ -9,27 +16,22 @@ class Solution {
     }
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> lst=new ArrayList<>();
-        int[] freq=new int[26];
-        for(int i=0;i<p.length();i++){
-            char ch=p.charAt(i);
-            freq[ch-'a']++;
-        }
-        int n=s.length();
         int k=p.length();
         int i=0;
-        int j=0;
-        while(j<n){
-            char kk=s.charAt(j);
-            freq[kk-'a']--;
-            if(j-i+1==k){
-                if(allzero(freq)){
-                    lst.add(i);
-                }
-                char ll=s.charAt(i);
-                freq[ll-'a']++;
+        StringBuilder sb=new StringBuilder();
+        for(int j=0;j<s.length();j++){
+            char ch=s.charAt(j);
+            sb.append(ch);
+            if(j-i+1>k){
+                sb.deleteCharAt(0);
                 i++;
             }
-            j++;
+            if(j-i+1==k){
+                String kk=sb.toString();
+                if(check(kk,p)){
+                    lst.add(i);
+                }
+            }
         }
         return lst;
     }
