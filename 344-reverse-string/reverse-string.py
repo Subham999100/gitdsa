@@ -4,12 +4,11 @@ class Solution(object):
         :type s: List[str]
         :rtype: None Do not return anything, modify s in-place instead.
         """
-        start=0
-        end=len(s)-1
-        while(start<=end):
+        def solve(start,end):
+            if(start>=end):
+               return
             temp=s[start]
             s[start]=s[end]
             s[end]=temp
-            start+=1
-            end-=1
-        
+            return solve(start+1,end-1)
+        return solve(0,len(s)-1)
