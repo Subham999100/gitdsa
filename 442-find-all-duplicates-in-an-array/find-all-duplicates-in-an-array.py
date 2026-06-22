@@ -4,11 +4,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        arr=[]
-        kick=set()
+        ans=[]
         for num in nums:
-            if num  in kick:
-                arr.append(num)
-            kick.add(num)
-        return arr
+            idx=abs(num)-1
+            if nums[idx]<0:
+                ans.append(abs(num))
+            else:
+                nums[idx]*=-1
+        return ans
         
