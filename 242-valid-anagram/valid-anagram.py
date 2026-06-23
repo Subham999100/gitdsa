@@ -5,15 +5,15 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        if(len(s)!=len(t)):
+        freq={}
+        if len(s)!=len(t):
             return False
-        count={}
         for ch in s:
-            count[ch]=count.get(ch,0)+1
-        for ch in t:
-            count[ch]=count.get(ch,0)-1
-        for v in count.values():
-            if v!=0:
+            freq[ch]=freq.get(ch,0)+1
+        for kh in t:
+            freq[kh]=freq.get(kh,0)-1
+        for kk in freq.values():
+            if kk>0:
                 return False
-        
         return True
+        
