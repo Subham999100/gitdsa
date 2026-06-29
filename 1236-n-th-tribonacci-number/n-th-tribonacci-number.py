@@ -8,8 +8,7 @@ class Solution(object):
         if n==2:
             return 1
         if dp[n]!=-1:
-            return dp[n
-            ]
+            return dp[n]
         dp[n]=self.solve(n-3,dp)+ self.solve(n-2,dp)+self.solve(n-1,dp)
         return dp[n]
 
