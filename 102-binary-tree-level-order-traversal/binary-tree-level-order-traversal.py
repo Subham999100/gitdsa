@@ -13,11 +13,11 @@ class Solution(object):
             lev=[]
             size=len(q)
             for _ in range(size):
-                node=q.popleft()
-                lev.append(node.val)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+                kk=q.popleft()
+                lev.append(kk.val)
+                if kk.left:
+                    q.append(kk.left)
+                if kk.right:
+                    q.append(kk.right)
             ans.append(lev)
         return ans
