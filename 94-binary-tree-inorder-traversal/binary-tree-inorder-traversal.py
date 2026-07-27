@@ -5,18 +5,20 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def order(self,root,ans):
-        if root is None:
-            return
-        self.order(root.left,ans)
-        ans.append(root.val)
-        self.order(root.right,ans)
     def inorderTraversal(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: List[int]
         """
+        stack=[]
         ans=[]
-        self.order(root,ans)
+        current=root
+        while current or stack:
+            while current:
+                stack.append(current)
+                current=current.left
+            current=stack.pop()
+            ans.append(current.val)
+            current=current.right
         return ans
         
