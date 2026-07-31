@@ -10,10 +10,9 @@ class Solution(object):
             return False
         for ch in s:
             freq[ch]=freq.get(ch,0)+1
-        for kh in t:
-            freq[kh]=freq.get(kh,0)-1
+        for ch in t:
+            freq[ch]=freq.get(ch,0)-1
         for kk in freq.values():
-            if kk>0:
+            if kk!=0:
                 return False
         return True
-        
