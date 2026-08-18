@@ -1,18 +1,18 @@
 class Solution(object):
-    def twoSum(self, numbers, target):
+    def twoSum(self, n, target):
         """
         :type numbers: List[int]
         :type target: int
         :rtype: List[int]
         """
-        l=0
-        r=len(numbers)-1
-        while(l<r):
-            s=numbers[l]+numbers[r]
-            if s==target:
-                return [l+1,r+1]
-            elif s<target:
-                l+=1
+        i=0
+        j=len(n)-1
+        while(i<j):
+            s=n[i]+n[j]
+            if(s==target):
+                return [i+1,j+1]
+            elif(s>target):
+                j-=1
             else:
-                r-=1
-            
+                i+=1
+        
