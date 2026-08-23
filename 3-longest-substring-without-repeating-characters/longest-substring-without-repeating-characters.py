@@ -6,13 +6,12 @@ class Solution(object):
         """
         kick=set()
         i=0
-        ans=0
+        maxlen=0
         for j in range(len(s)):
-            while s[j] in kick:
+            while(s[j] in kick):
                 kick.remove(s[i])
                 i+=1
             kick.add(s[j])
-            ans=max(ans,j-i+1)
-        return ans 
-
-        
+            maxlen=max(maxlen,j-i+1)
+        return  maxlen
+            
